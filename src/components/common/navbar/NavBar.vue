@@ -21,8 +21,10 @@
 <style scoped>
   .nav-bar {
     display: flex;
-    height: 44px;
-    line-height: 44px;
+    height: 6.5vh;
+    line-height: 6.5vh;
+    font-size: 2.7vh;
+    letter-spacing: 1vw;
     text-align: center;
     box-shadow: 0 1px 0 0 rgba(100,100,100,0.2);
   }
