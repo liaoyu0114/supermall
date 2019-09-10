@@ -30,7 +30,7 @@
   }
 
   .left, .right {
-    width: 60px;
+    width: 12.5vw;
 
   }
   .center {

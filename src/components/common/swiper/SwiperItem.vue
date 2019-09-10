@@ -1,12 +1,18 @@
 <template>
-    <div class="slide">
+    <div class="slide" @load="swiperLoad">
       <slot></slot>
     </div>
 </template>
 
 <script>
 	export default {
-		name: "Slide"
+		name: "Slide",
+    methods: {
+		  swiperLoad() {
+		    this.$parent.startSwiper()
+        console.log(1);
+      }
+    }
 	}
 </script>
 

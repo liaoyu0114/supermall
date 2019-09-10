@@ -1,6 +1,6 @@
 <template>
-  <div class="goodsitem">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goodsitem" @click="goodClick">
+    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
     <div class="description">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -18,6 +18,23 @@
         default() {
           return {}
         }
+      }
+    },
+    methods: {
+      imageLoad() {
+        this.$bus.$emit('itemImageLoad');
+      },
+      goodClick() {
+        //路由跳转
+        // 1.使用query detail？xxx形式
+        this.$router.push({
+          path: '/detail',
+          query: {
+            iid: this.goodsItem.iid
+          }
+        });
+        // // 2 使用detail/xxx形式 需要在router配置动态
+        // this.$router.push('/detail/' + this.goodsItem.iid);
       }
     }
   }

@@ -4,7 +4,7 @@
     <div v-else><slot name="item-icon-active"></slot></div>
     <!--使用v-bind动态绑定class//动态传入颜色，不确定使用计算属性-->
     <!--<div :class="{active: isActive}"><slot name="item-text"></slot></div>-->
-    <div :style="activeStyle"><slot name="item-text"></slot></div>
+    <div :style="activeStyle" class="text"><slot name="item-text"></slot></div>
   </div>
 </template>
 
@@ -44,21 +44,25 @@
     }
   }
 </script>
-
 <style scoped>
   .tab-bar-item {
     flex: 1;
     text-align: center;
-    height: 49px;
-    font-size: 14px;
+    height: 6.7vh;
+    font-size: 1.8vh;
+    letter-spacing: 0.5vw;
   }
 
   .tab-bar-item img {
-    width: 24px;
-    height: 24px;
-    margin-top: 3px;
+    width: 3.3vh;
+    height: 3.3vh;
+    margin-top: 0.8vh;
     vertical-align: middle;
     margin-bottom: 2px;
+  }
+  .text {
+    position: relative;
+    left: 0.25vw;
   }
   /*.active {*/
     /*color: #ff5777;*/

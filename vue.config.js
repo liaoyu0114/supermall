@@ -11,6 +11,9 @@ module.exports = {
         'components': '@/components',
         'network': '@/network',
       }
+    },
+    devServer: {
+      disableHostCheck: true
     }
   }
-}
+};

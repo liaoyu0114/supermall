@@ -1,5 +1,5 @@
 <template>
-  <div class="tabcontrol">
+  <div class="tabcontrol" >
     <div v-for="(item, index) in titles" class="tabcontrol-item"
          :class="{active: index===currentIndex}" @click="itemClick(index)">
       <span>{{item}}</span>
@@ -20,12 +20,14 @@
     },
     data() {
       return {
+        //记录选择状态
         currentIndex: 0
       }
     },
     methods: {
       itemClick(index) {
         this.currentIndex = index;
+        this.$emit('tabClick', index);
       }
     }
   }
@@ -36,9 +38,11 @@
    display: flex;
    text-align: center;
    height: 6vh;
-   line-height: 40px;
-   font-size: 4vw;
+   line-height: 6vh;
+   font-size: 2.5vh;
    /*font-weight: 600;*/
+
+   margin-bottom: 0.5vh;
    background-color: white;
  }
   .tabcontrol-item {
@@ -48,5 +52,8 @@
     border-bottom: 3px solid var(--color-high-text);
     padding: 5px;
     color: var(--color-tint);
+  }
+  @media screen and (max-device-width: 370px) {
+
   }
 </style>

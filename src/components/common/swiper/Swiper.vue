@@ -32,6 +32,10 @@
       showIndicator: {
         type: Boolean,
         default: true
+      },
+      indicatorCount: {
+        type: Number,
+        default: 0
       }
     },
     data: function () {
@@ -44,15 +48,18 @@
       }
     },
     mounted: function () {
-      // 1.操作DOM, 在前后添加Slide
-      setTimeout(() => {
-        this.handleDom();
-
-        // 2.开启定时器
-        this.startTimer();
-      }, 100)
+      this.startSwiper();
     },
     methods: {
+		  startSwiper() {
+        // 1.操作DOM, 在前后添加Slide
+        setTimeout(() => {
+          this.handleDom();
+
+          // 2.开启定时器
+          this.startTimer();
+        }, 500)
+      },
 		  /**
        * 定时器操作
        */
@@ -120,10 +127,13 @@
         // 1.获取要操作的元素
         let swiperEl = document.querySelector('.swiper');
         let slidesEls = swiperEl.getElementsByClassName('slide');
+        // console.log(slidesEls);
 
-        // 2.保存个数
+        // // 2.保存个数
         this.slideCount = slidesEls.length;
-
+        // console.log(this.indicatorCount);
+        // this.slideCount = this.indicatorCount;
+        // console.log(this.slideCount);
         // 3.如果大于1个, 那么在前后分别添加一个slide
         if (this.slideCount > 1) {
           let cloneFirst = slidesEls[0].cloneNode(true);
@@ -229,9 +239,9 @@
 
   .indi-item {
     box-sizing: border-box;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 1vw;
     background-color: #fff;
     line-height: 8px;
     text-align: center;
