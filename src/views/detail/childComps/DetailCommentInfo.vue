@@ -40,7 +40,8 @@
       }
     },
     filters: {
-		  showDate: function (value) {
+		  showDate(value) {
+		    //时间戳转成Date对象
         let date = new Date(value*1000);
         return formatDate(date, 'yyyy-MM-dd')
       }

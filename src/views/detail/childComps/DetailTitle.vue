@@ -29,6 +29,7 @@
       //1.点击事件
       titleClick(index) {
         this.currentIndex = index;
+        this.$emit('titleClick', index)
       },
       backClick() {
         this.$router.back();

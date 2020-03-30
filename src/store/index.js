@@ -1,37 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
 //1.安装插件
 Vue.use(Vuex)
 
-//2.创建对象
-
-const store = new Vuex.Store({
-  state: {
+const state =  {
   //  保存状态
-    counter: 1000
-  },
-  mutations: {
-  //定义方法,默认由一个 state参数
-    increment(state) {
-      state.counter++
-    },
-    decrement(state) {
-      state.counter--
-    }
-  },
-  actions: {
-  //做异步操作时z
-  },
-  getters: {
-  //类似于computed，返回计算后的值，默认state
-    double(state) {
-      return state.counter * state.counter
-    }
-  },
+  homeScrollHeight: 0,
+  cartList: [{
+    iid: '1m70y5k',
+    image: '//s11.mogucdn.com/mlcdn/c45406/180808_600abce0g8dc8i4f6ic7k27i7837l_640x960.jpg',
+    title: '2018秋季新款韩版百搭格子长袖衬衫+前短后长针织气质开衫外套+高腰直筒九分牛仔裤三件套装',
+    desc: '2018秋季新款韩版百搭格子长袖衬衫+前短后长针织气质开衫外套+高腰直筒九分牛仔裤三件套装',
+    price: '59.00',
+    checked: false,
+    count: 1
+  }]
+};
+//2.创建对象
+const store = new Vuex.Store({
+  state,
+  mutations,
+  actions,
+  getters,
   modules: {
-
+    //引入多个store对象
   }
-})
+});
 
 export default store

@@ -17,6 +17,7 @@
         }
       }
     },
+
     methods: {
     },
     components: {

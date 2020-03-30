@@ -1,6 +1,6 @@
 <template>
   <div class="goodsitem" @click="goodClick">
-    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+    <img :src="showImage" alt="" @load="imageLoad">
     <div class="description">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -18,6 +18,12 @@
         default() {
           return {}
         }
+      }
+    },
+    computed: {
+      showImage() {
+        //首页列表和推荐页列表图片不一样  推荐 || 首页
+        return this.goodsItem.image || this.goodsItem.show.img
       }
     },
     methods: {

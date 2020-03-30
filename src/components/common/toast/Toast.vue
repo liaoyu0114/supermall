@@ -1,10 +1,18 @@
 <template>
-  $END$
+  <div class="toast">
+
+  </div>
 </template>
 
 <script>
   export default {
-    name: "Toast"
+    name: "Toast",
+    props: {
+      message: {
+        type: String,
+        default: ''
+      }
+    }
   }
 </script>
 
